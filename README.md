@@ -15,4 +15,5 @@
 ## Contact
 
 Email: contact@skuzzi.ro
+
 Discord: skuzzis
