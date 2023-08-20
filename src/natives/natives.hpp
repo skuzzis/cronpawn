@@ -56,6 +56,7 @@ public:
 	}
 
 	bool ShouldExecute(std::time_t time) {
+		if(this->executeTime < time) this->executeTime = cron::cron_next(this->cronexp, std::time(0));
 		return this->executeTime == time;
 	}
 
