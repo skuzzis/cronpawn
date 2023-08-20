@@ -7,16 +7,6 @@
 uint32_t cronID = 0;
 std::map<uint32_t, Cron*> crons;
 
-/*cell Natives::test_native(AMX* amx, cell* params)
-{
-	logprintf("Test Native");
-	return 1;
-}
-
-	cell ExecuteCron(AMX* amx, cell* params);
-
-*/
-
 // native CronID:CreateCron(const cron_name[], const cron_settings[], const callback[], const args[], {Float,_}:...);
 cell Natives::CreateCron(AMX* amx, cell* params) {
 	std::string cron_name = Utilities::GetString(amx, params, 1);
@@ -40,9 +30,8 @@ cell Natives::CreateCron(AMX* amx, cell* params) {
 		created = true;
 	}
 	catch (cron::bad_cronexpr const& ex) {
-		(void)ex;
 		char errorMessage[512];
-		snprintf(errorMessage, sizeof errorMessage, "CronJob \"%s\" with task \"%s\" failed to create.", cron_name.c_str(), cron_settings.c_str());
+		snprintf(errorMessage, sizeof errorMessage, "CronJob \"%s\" with task \"%s\" failed to create. Reason: %s", cron_name.c_str(), cron_settings.c_str(), (char*)ex.what());
 		Utilities::WriteErrorLog(errorMessage);
 		created = false;
 	}
@@ -159,11 +148,12 @@ void Natives::ExecuteCrons()
 {
 	while (true)
 	{
+		std::time_t now = std::time(0);
 		for (auto const& ch : crons)
 		{
 			Cron* crn = ch.second;
 			if (!crn->IsSuspended()) {
-				if (crn->ShouldExecute()) crn->Execute();
+				if (crn->ShouldExecute(now)) crn->Execute();
 			}
 		}
 		std::this_thread::sleep_for(std::chrono::milliseconds(1000));

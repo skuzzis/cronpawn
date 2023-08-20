@@ -55,9 +55,8 @@ public:
 		return this->suspended;
 	}
 
-	bool ShouldExecute() {
-		std::time_t now = std::time(0);
-		return this->executeTime == now;
+	bool ShouldExecute(std::time_t time) {
+		return this->executeTime == time;
 	}
 
 	void Execute() {
