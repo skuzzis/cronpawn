@@ -2,7 +2,7 @@
 
 | Releases                                                                                                              | Master                                                                                                                                    |
 | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| [![Download](https://static.kxnrl.com/images/web/buttons/download.png)](https://github.com/skuzzis/vectors/releases/) | [![Download](https://static.kxnrl.com/images/web/buttons/download.png)](https://github.com/skuzzis/vectors/archive/refs/heads/master.zip) |
+| [![Download](https://static.kxnrl.com/images/web/buttons/download.png)](https://github.com/skuzzis/cronpawn/releases/) | [![Download](https://static.kxnrl.com/images/web/buttons/download.png)](https://github.com/skuzzis/cronpawn/archive/refs/heads/master.zip) |
 
 ## Useful Links
 
