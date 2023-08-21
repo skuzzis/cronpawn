@@ -14,7 +14,7 @@ Below is provided the cron expression you can use with this plugin:
 
 The following values are allowed for these fields:
 
-| Field | Required | Allowed value * | Allowed value (alternative 1) ** | Allowed value (alternative 2) *** | Allowed special characters |
+| Field | Required | Allowed value | Allowed value (alternative 1) | Allowed value (alternative 2) | Allowed special characters |
 | --- | --- | --- | --- | --- | --- |
 | seconds | yes | 0-59 | 0-59 | 0-59 | `*` `,` `-` |
 | minutes | yes | 0-59 | 0-59 | 0-59 | `*` `,` `-` |
